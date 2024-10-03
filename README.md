@@ -24,10 +24,16 @@ Each SM executes one block at a time. Each block is divided into warps. Warps of
 
 Device Memory: Grid scope.....available to all threads in all blocks......cudaMalloc is dynamic memory allocation......for static memory allocation use __device__ int sum = 0; This memory is slow.
 
-Constant and Texture Memory: __constant__ . It is fast provided all threads read from same location. Texture memory is more optimised for access (mostly used in game graphics).
+Constant and Texture Memory: __constant__ . It is fast provided all threads read from same location. Texture memory is more optimised for access (mostly used in game graphics). Constant memory is cached. so it is slightly faster.
 
 Shared Memory: only within a thread block. It is very fast. <<<block, thread, share_mem>>>
 
 in the kernel func: extern __shared__ int dcopy[];
 
 dcopy[i * 2] = d[i * 2];
+
+All the above memory is defined before kernel call
+
+Register and Local Memory: per thread
+
+for array use localmemory....abstraction but stored in global memory and inaccessible to others....that's why it slow than registers. Regsisters can only store single values.
