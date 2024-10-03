@@ -22,4 +22,10 @@ Thread blocks are scheduled to run on available SMs. This is done by scheduler.
 
 Each SM executes one block at a time. Each block is divided into warps. Warps of a thread blocks are handled concurrently. 
 
-Device Memory: Grid scope.....available to all threads in all blocks......cudaMalloc is dynamic memory allocation......for static memory allocation use __device__ int sum = 0;
+Device Memory: Grid scope.....available to all threads in all blocks......cudaMalloc is dynamic memory allocation......for static memory allocation use __device__ int sum = 0; This memory is slow.
+
+Constant and Texture Memory: __constant__ . It is fast provided all threads read from same location. Texture memory is more optimised for access (mostly used in game graphics).
+
+Shared Memory: only within a thread block. It is very fast. <<<block, thread, share_mem>>>
+
+in the kernel func: extern __shared__ int dcopy[];
