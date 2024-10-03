@@ -21,3 +21,5 @@ PTX (Parallel Thread Execution) is assembly of CUDA
 Thread blocks are scheduled to run on available SMs. This is done by scheduler.
 
 Each SM executes one block at a time. Each block is divided into warps. Warps of a thread blocks are handled concurrently. 
+
+Device Memory: Grid scope.....available to all threads in all blocks......cudaMalloc is dynamic memory allocation......for static memory allocation use __device__ int sum = 0;
