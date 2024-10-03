@@ -37,3 +37,23 @@ All the above memory is defined before kernel call
 Register and Local Memory: per thread
 
 for array use localmemory....abstraction but stored in global memory and inaccessible to others....that's why it slow than registers. Regsisters can only store single values.
+
+Atomic operations makes sure we don't have race conditions in multiprocessing
+
+Pinned and paged locked memory
+
+# Events and Streams
+
+Pinned memory is needed to use streams
+
+## Events
+Os timer (too much noise)
+Profiler (times only kernel duration and other invocations)
+
+## CPU has pageable memory (can be swapped to disk)
+
+## But it can be pinned (pagebale locked) - stays in place: cudaHostAlloc() for pinned memory
+
+CUDA Streams is a queue of GPU operations - Kernel lauch, memory copy
+
+kernel<<<blocks, threads, shared_mem, streams>>>
