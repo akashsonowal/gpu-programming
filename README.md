@@ -29,3 +29,5 @@ Constant and Texture Memory: __constant__ . It is fast provided all threads read
 Shared Memory: only within a thread block. It is very fast. <<<block, thread, share_mem>>>
 
 in the kernel func: extern __shared__ int dcopy[];
+
+dcopy[i * 2] = d[i * 2];
