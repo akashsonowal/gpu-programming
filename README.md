@@ -57,3 +57,8 @@ Profiler (times only kernel duration and other invocations)
 CUDA Streams is a queue of GPU operations - Kernel lauch, memory copy
 
 kernel<<<blocks, threads, shared_mem, streams>>>
+
+## Nsight Systems Profiling
+```
+nsys profile --stats=true vector_addition 
+```
